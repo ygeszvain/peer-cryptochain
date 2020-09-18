@@ -109,9 +109,11 @@ app.get('/api/known-addresses', (req, res) => {
 
   for (let block of blockchain.chain) {
     for (let transaction of block.data) {
+      if (transaction.outputMap){
       const recipient = Object.keys(transaction.outputMap);
 
       recipient.forEach(recipient => addressMap[recipient] = recipient);
+      }
     }
   }
 
