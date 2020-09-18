@@ -46,6 +46,7 @@ class Blockchain {
       let rewardTransactionCount = 0;
 
       for (let transaction of block.data) {
+        if (transaction && transaction.input){
         if (transaction.input.address === REWARD_INPUT.address) {
           rewardTransactionCount += 1;
 
@@ -81,6 +82,7 @@ class Blockchain {
             transactionSet.add(transaction);
           }
         }
+      }
       }
     }
 
