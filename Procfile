@@ -1,0 +1,1 @@
+web: node index.js serve -p $PORT -H 0.0.0.0
