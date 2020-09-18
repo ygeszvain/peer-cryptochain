@@ -10,13 +10,9 @@ const TransactionMiner = require('./app/transaction-miner');
 
 const isDevelopment = process.env.ENV === 'development';
 
-const REDIS_URL = isDevelopment ?
-  'redis://127.0.0.1:6379' :
-  'redis://h:pe8e697c546ee8a710c2964978d80646336cce26dbe66dbfc885945fe4aeb4586@ec2-174-129-211-211.compute-1.amazonaws.com:10509'
+const REDIS_URL = 'redis://h:p578251f197e89f6a354abef063df6fdacf253d39693f9cf9a58989961902368a@ec2-54-243-12-0.compute-1.amazonaws.com:18479'
 const DEFAULT_PORT = 3000;
-const ROOT_NODE_ADDRESS = isDevelopment ?
-  `http://localhost:${DEFAULT_PORT}` :
-  'https://blockchainherewego.herokuapp.com'
+const ROOT_NODE_ADDRESS = `http://localhost:${DEFAULT_PORT}`;
 
 const app = express();
 const blockchain = new Blockchain();
@@ -199,4 +195,4 @@ app.listen(PORT, () => {
   if (PORT !== DEFAULT_PORT) {
     syncWithRootState();
   }
-});
+})

@@ -38,16 +38,18 @@ class Wallet {
       const block = chain[i];
 
       for (let transaction of block.data) {
-        if (transaction.input.address === address) {
-          hasConductedTransaction = true;
-        }
-
+        if(transaction && transaction.input){
+          if (transaction.input.address === address) {
+            hasConductedTransaction = true;
+          }
+        
         const addressOutput = transaction.outputMap[address];
 
         if (addressOutput) {
           outputsTotal = outputsTotal + addressOutput;
         }
       }
+    }
 
       if (hasConductedTransaction) {
         break;
